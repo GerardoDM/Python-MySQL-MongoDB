@@ -10,7 +10,7 @@ class Conexion:
 
     def _connect(self):
         try:
-            connection = mysql.connector.connect(host="localhost",database="PruebaPython" ,user="root",password="root")
+            connection = mysql.connector.connect(host="localhost",database="PruebaPythonMySQL" ,user="root",password="root")
 
             if connection.is_connected():
 
