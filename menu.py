@@ -2,6 +2,7 @@
 import os
  
 def menu():
+
 	
 	os.system('cls') 
 	print ("Selecciona una opción")
@@ -32,3 +33,7 @@ while True:
 	else:
 		print ("")
 		input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar")
+
+
+
+

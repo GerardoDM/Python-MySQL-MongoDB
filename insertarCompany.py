@@ -36,3 +36,9 @@ nombreCompany = input('Ingrese nombre de la compañia ')
 precioCompany = input('Ingrese rfc de la compañia ')
 direccionCompany = input('Ingrese dirección de la compañia ')
 insertVariblesIntoTable(nombreCompany, precioCompany, direccionCompany)
+
+
+# array = array['uno', 'dos', 'tres']
+
+# for x in array:
+
