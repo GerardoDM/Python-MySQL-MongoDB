@@ -2,20 +2,14 @@
 
 import mysql.connector 
 from pruebaClassConexion import Conexion
-from consolemenu import *
-from consolemenu.items import *
-
-# objeto = Conexion()
-
-# objeto._connect()
 
 def insertVariblesIntoTable(nombre, rfc, direccion, company):
     try:
         
-        connection = mysql.connector.connect(host="localhost",database="PruebaPythonMySQL" ,user="root",password="root")
+        connection = mysql.connector.connect(host="localhost",database="PruebaPython" ,user="root",password="root")
           
         cursor = connection.cursor()
-        mySql_insert_query = """INSERT INTO Cliente (nombre_cliente, rfc_cliente, direccion_cliente, id_company) 
+        mySql_insert_query = """INSERT INTO Cliente (nombre_cliente, rfc_cliente, direccion_cliente, nombre_company) 
                                 VALUES (%s, %s, %s, %s) """
 
         
@@ -34,21 +28,29 @@ def insertVariblesIntoTable(nombre, rfc, direccion, company):
             connection.close()
             print("MySQL connection is closed")
 
-array = ['uno', 'dos', 'tres']
-
-nombreCompany = input('Ingrese nombre de cliente ')
-precioCompany = input('Ingrese rfc de cliente ')
-direccionCompany = input('Ingrese dirección de cliente ')
-
-array = ['UNO', 'DOS', 'TRES']
-print(array)
-
-company = input("Ingrese nombre de la compañia disponible ").upper()
-print(company)
-
-if company in array:
-    print("Excelente")
 
 
-insertVariblesIntoTable(nombreCompany, precioCompany, direccionCompany,company )
+nombreCliente = input('Ingrese nombre de cliente ')
+rfcCliente = input('Ingrese rfc de cliente ')
+direccionCliente = input('Ingrese dirección de cliente ')
+
+
+companyList = ["UNO", "dos", "TRES"]
+
+while True:
+    
+    company = input("Ingrese nombre de la compañia disponible ").upper()
+
+    while company not in companyList:
+        print("No coincide con ninguna empresa, vuelve a intentar")
+        company = input("Ingrese nombre de la compañia disponible ").upper()
+
+
+    if company in companyList:
+        print("Excelente")
+        break
+    
+
+
+insertVariblesIntoTable(nombreCliente, rfcCliente , direccionCliente ,company )
 
