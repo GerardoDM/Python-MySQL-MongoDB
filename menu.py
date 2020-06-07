@@ -6,9 +6,9 @@ def menu():
 	
 	os.system('cls') 
 	print ("Selecciona una opción")
-	print ("\t1 - primera opción")
-	print ("\t2 - segunda opción")
-	print ("\t3 - tercera opción")
+	print ("\t1 - Crear Compañia")
+	print ("\t2 - Crear Cliente")
+	print ("\t3 - Crear Producto")
 	print ("\t9 - salir")
  
  

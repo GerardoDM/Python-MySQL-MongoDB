@@ -2,14 +2,11 @@
 import mysql.connector 
 from pruebaClassConexion import Conexion
 
-# objeto = Conexion()
 
-# objeto._connect()
-
-def insertVariblesIntoTable(nombre_producto, precio):
+def insertarProducto(nombre_producto, precio):
     try:
         
-        connection = mysql.connector.connect(host="localhost",database="PruebaPythonMySQL" ,user="root",password="root")
+        connection = mysql.connector.connect(host="localhost",database="PruebaPython" ,user="root",password="root")
           
         cursor = connection.cursor()
         mySql_insert_query = """INSERT INTO Producto (nombre_producto, precio) 
@@ -31,7 +28,7 @@ def insertVariblesIntoTable(nombre_producto, precio):
             connection.close()
             print("MySQL connection is closed")
 
-nombreProducto = input()
-precioProducto = input()
-insertVariblesIntoTable(nombreProducto, precioProducto)
+nombreProducto = input("Ingrese nombre de producto: ")
+precioProducto = input("Ingrese precio de producto: ")
+insertarProducto(nombreProducto, precioProducto)
 
