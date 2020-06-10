@@ -3,6 +3,8 @@ import mysql.connector
 
 class Company:
 
+    companyList = []
+
 
     def set_nombre(self, nombre):
         self.nombre = nombre
@@ -14,7 +16,7 @@ class Company:
         self.direccion = direccion
 
     def fetchCompany(self):
-        companyList = []
+        
         try:
 
 
@@ -31,7 +33,7 @@ class Company:
 
             for row in records:
 
-                companyList.append(row[0])
+                Company.companyList.append(row[0])
 
 
         except mysql.connector.Error as error:

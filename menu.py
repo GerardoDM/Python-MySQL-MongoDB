@@ -3,6 +3,7 @@ import os
 import mysql.connector 
 from Company import Company
 from Producto import Producto
+from Cliente import Cliente
  
 def menu():
 
@@ -12,6 +13,7 @@ def menu():
 	print ("\t1 - Crear Compañia")
 	print ("\t2 - Crear Cliente")
 	print ("\t3 - Crear Producto")
+	print ("\t3 - Realizar Compra")
 	print ("\t9 - salir")
  
  
@@ -23,7 +25,7 @@ while True:
 	opcionMenu = input("Elije una opcion : ")
  
 	if opcionMenu=="1":
-		
+
 		company = Company()
 
 		nombreCompany = input('Ingrese nombre de la compañia ').upper()
@@ -32,8 +34,34 @@ while True:
 		company.insertarCompany(nombreCompany, precioCompany, direccionCompany)
 		
 	elif opcionMenu=="2":
-		print ("")
-		input("Has pulsado la opción 2...\npulsa una tecla para continuar")
+
+		cliente = Cliente()
+		company2 = Company()
+		company2.fetchCompany()
+		
+
+		nombreCliente = input('Ingrese nombre de cliente ')
+		rfcCliente = input('Ingrese rfc de cliente ')
+		direccionCliente = input('Ingrese dirección de cliente ')
+
+		print(company2.companyList)
+
+
+
+		while True:
+			
+			company = input("Ingrese nombre de la compañia disponible ").upper()
+
+			while company not in company2.companyList:
+				print("No coincide con ninguna empresa, vuelve a intentar")
+				company = input("Ingrese nombre de la compañia disponible ").upper()
+
+
+			if company in company2.companyList:
+				print("Excelente")
+				break
+
+		cliente.insertCliente( nombreCliente, rfcCliente, direccionCliente, company)
 
 	elif opcionMenu=="3":
 		
