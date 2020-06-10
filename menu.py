@@ -1,9 +1,11 @@
 
 import os
 import mysql.connector 
+from datetime import date
 from Company import Company
 from Producto import Producto
 from Cliente import Cliente
+from Compra import Compra
  
 def menu():
 
@@ -13,7 +15,7 @@ def menu():
 	print ("\t1 - Crear Compañia")
 	print ("\t2 - Crear Cliente")
 	print ("\t3 - Crear Producto")
-	print ("\t3 - Realizar Compra")
+	print ("\t4 - Realizar Compra")
 	print ("\t9 - salir")
  
  
@@ -70,6 +72,52 @@ while True:
 		nombreProducto = input("Ingrese nombre de producto: ")
 		precioProducto = input("Ingrese precio de producto: ")
 		product.insertarProducto(nombreProducto, precioProducto)
+
+	elif opcionMenu=="4":
+		
+		compra = Compra()
+		cliente = Cliente()
+		cliente.fetchClientes()
+		producto = Producto()
+		producto.fetchProduct()
+
+		print(cliente.clienteList)
+
+
+		while True:
+			
+			clienteCompra = int(input("Ingrese ID de cliente disponible: "))
+
+			while clienteCompra not in cliente.clienteList:
+				print("No coincide con ningún ID, vuelve a intentar")
+				print(cliente.clienteList)
+				clienteCompra = int(input("Ingrese ID de cliente disponible: "))
+
+
+			if clienteCompra in cliente.clienteList:
+				print("Excelente")
+				break
+
+		print(producto.productosList)
+
+		while True:
+			
+			productoCompra = int(input("Ingrese ID de producto disponible: "))
+
+			while productoCompra not in producto.productosList:
+				print("No coincide con ningún ID, vuelve a intentar")
+				print(producto.productosList)
+				productoCompra = int(input("Ingrese ID de producto disponible: "))
+
+
+			if productoCompra in producto.productosList:
+				print("Excelente")
+				break
+
+		cantidadCompra = int(input('Ingrese cantidad de la compra: '))
+		precioCompra = int(input("Ingrese el precio total de la compra: "))
+		fechaCompra = date.today()
+		compra.insertCompra(cantidadCompra, fechaCompra, precioCompra, clienteCompra, productoCompra)
 
 	elif opcionMenu=="9":
 		break

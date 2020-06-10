@@ -6,6 +6,9 @@ import mysql.connector
 
 class Producto:
 
+    productosList = []
+
+
     def set_precio(self,precio):
         self.precio = precio
 
@@ -14,7 +17,6 @@ class Producto:
 
     def fetchProduct(self):
         try:
-            productosList = []
 
             connection = mysql.connector.connect(host='localhost',
                                                 database='PruebaPython',
@@ -29,7 +31,7 @@ class Producto:
 
             for row in records:
 
-                productosList.append(row[0])
+                Producto.productosList.append(row[0])
 
         except mysql.connector.Error as error:
 

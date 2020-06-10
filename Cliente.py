@@ -3,6 +3,8 @@ import mysql.connector
 
 class Cliente:
 
+    clienteList = []
+
 
     def set_nombre(self, nombre):
         self.nombre = nombre
@@ -40,4 +42,33 @@ class Cliente:
             if (connection.is_connected()):
                 cursor.close()
                 connection.close()
+                print("MySQL connection is closed")
+
+    def fetchClientes(self):
+        
+        try:
+
+            connection = mysql.connector.connect(host='localhost',
+                                                database='PruebaPython',
+                                                user='root',
+                                                password='root')
+
+            sql_select_Query = "select * from cliente"
+            cursor = connection.cursor()
+            cursor.execute(sql_select_Query)
+            records = cursor.fetchall()
+    
+
+            for row in records:
+
+                Cliente.clienteList.append(row[0])
+
+        except mysql.connector.Error as error:
+
+            print("Error reading data from MySQL table", error)
+        finally:
+
+            if (connection.is_connected()):
+                connection.close()
+                cursor.close()
                 print("MySQL connection is closed")
