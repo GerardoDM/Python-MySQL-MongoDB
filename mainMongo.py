@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from Compañia import Compañia
+from CompañiaMongo import CompañiaMongo
 
 mongoClient = MongoClient('localhost',27017)
 
