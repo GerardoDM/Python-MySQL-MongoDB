@@ -1,5 +1,8 @@
 
 import os
+import mysql.connector 
+from Company import Company
+from Producto import Producto
  
 def menu():
 
@@ -20,14 +23,26 @@ while True:
 	opcionMenu = input("Elije una opcion : ")
  
 	if opcionMenu=="1":
-		print ("")
-		input("Has pulsado la opción 1...\npulsa una tecla para continuar")
+		
+		company = Company()
+
+		nombreCompany = input('Ingrese nombre de la compañia ').upper()
+		precioCompany = input('Ingrese rfc de la compañia ')
+		direccionCompany = input('Ingrese dirección de la compañia ')
+		company.insertarCompany(nombreCompany, precioCompany, direccionCompany)
+		
 	elif opcionMenu=="2":
 		print ("")
 		input("Has pulsado la opción 2...\npulsa una tecla para continuar")
+
 	elif opcionMenu=="3":
-		print ("")
-		input("Has pulsado la opción 3...\npulsa una tecla para continuar")
+		
+		product = Producto()
+
+		nombreProducto = input("Ingrese nombre de producto: ")
+		precioProducto = input("Ingrese precio de producto: ")
+		product.insertarProducto(nombreProducto, precioProducto)
+
 	elif opcionMenu=="9":
 		break
 	else:
