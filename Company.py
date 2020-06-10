@@ -1,5 +1,3 @@
-
-
 class Company:
 
 
@@ -11,5 +9,3 @@ class Company:
     
     def set_direccion(self,direccion):
         self.direccion = direccion
-
-    
