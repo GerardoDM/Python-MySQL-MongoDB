@@ -45,14 +45,9 @@ while True:
 			print("No puedes crear cliente sin compañias existentes")
 			input("Presiona enter para continuar")
 			menu()
-			#break
-
-		#menu()
 			
-		else:
-
-
-		
+			
+		else:	
 
 			nombreCliente = input('Ingrese nombre de cliente ')
 			rfcCliente = input('Ingrese rfc de cliente ')
