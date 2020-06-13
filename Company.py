@@ -29,7 +29,7 @@ class Company:
             cursor = connection.cursor()
             cursor.execute(sql_select_Query)
             records = cursor.fetchall()
-            print("Total number of rows in Laptop is: ", cursor.rowcount)
+            
 
             for row in records:
 
