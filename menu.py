@@ -1,4 +1,3 @@
-
 import os
 import mysql.connector 
 from datetime import date
@@ -40,30 +39,42 @@ while True:
 		cliente = Cliente()
 		company2 = Company()
 		company2.fetchCompany()
+
+		if len(company2.companyList) == 0:
+			print("No puedes crear cliente sin compañias existentes")
+			input("Presiona enter para continuar")
+			menu()
+			#break
+
+		#menu()
+			
+		else:
+
+
 		
 
-		nombreCliente = input('Ingrese nombre de cliente ')
-		rfcCliente = input('Ingrese rfc de cliente ')
-		direccionCliente = input('Ingrese dirección de cliente ')
+			nombreCliente = input('Ingrese nombre de cliente ')
+			rfcCliente = input('Ingrese rfc de cliente ')
+			direccionCliente = input('Ingrese dirección de cliente ')
 
-		print(company2.companyList)
+			print(company2.companyList)
 
 
 
-		while True:
-			
-			company = input("Ingrese nombre de la compañia disponible ").upper()
-
-			while company not in company2.companyList:
-				print("No coincide con ninguna empresa, vuelve a intentar")
+			while True:
+				
 				company = input("Ingrese nombre de la compañia disponible ").upper()
 
+				while company not in company2.companyList:
+					print("No coincide con ninguna empresa, vuelve a intentar")
+					company = input("Ingrese nombre de la compañia disponible ").upper()
 
-			if company in company2.companyList:
-				print("Excelente")
-				break
 
-		cliente.insertCliente( nombreCliente, rfcCliente, direccionCliente, company)
+				if company in company2.companyList:
+					print("Excelente")
+					break
+
+			cliente.insertCliente( nombreCliente, rfcCliente, direccionCliente, company)
 
 	elif opcionMenu=="3":
 		
@@ -81,50 +92,54 @@ while True:
 		producto = Producto()
 		producto.fetchProduct()
 
-		print(cliente.clienteList)
+		if len(cliente.clienteList) == 0 or len(producto.productosList) == 0:
+			print("No puedes realizar compras sin productos o clientes creados")
+			input("Presiona enter para continuar")
+			menu()
+		
+		else:
 
 
-		while True:
-			
-			clienteCompra = int(input("Ingrese ID de cliente disponible: "))
+			print(cliente.clienteList)
 
-			while clienteCompra not in cliente.clienteList:
-				print("No coincide con ningún ID, vuelve a intentar")
-				print(cliente.clienteList)
+
+			while True:
+				
 				clienteCompra = int(input("Ingrese ID de cliente disponible: "))
 
+				while clienteCompra not in cliente.clienteList:
+					print("No coincide con ningún ID, vuelve a intentar")
+					print(cliente.clienteList)
+					clienteCompra = int(input("Ingrese ID de cliente disponible: "))
 
-			if clienteCompra in cliente.clienteList:
-				print("Excelente")
-				break
 
-		print(producto.productosList)
+				if clienteCompra in cliente.clienteList:
+					print("Excelente")
+					break
 
-		while True:
-			
-			productoCompra = int(input("Ingrese ID de producto disponible: "))
+			print(producto.productosList)
 
-			while productoCompra not in producto.productosList:
-				print("No coincide con ningún ID, vuelve a intentar")
-				print(producto.productosList)
+			while True:
+				
 				productoCompra = int(input("Ingrese ID de producto disponible: "))
 
+				while productoCompra not in producto.productosList:
+					print("No coincide con ningún ID, vuelve a intentar")
+					print(producto.productosList)
+					productoCompra = int(input("Ingrese ID de producto disponible: "))
 
-			if productoCompra in producto.productosList:
-				print("Excelente")
-				break
 
-		cantidadCompra = int(input('Ingrese cantidad de la compra: '))
-		precioCompra = int(input("Ingrese el precio total de la compra: "))
-		fechaCompra = date.today()
-		compra.insertCompra(cantidadCompra, fechaCompra, precioCompra, clienteCompra, productoCompra)
+				if productoCompra in producto.productosList:
+					print("Excelente")
+					break
+
+			cantidadCompra = int(input('Ingrese cantidad de la compra: '))
+			precioCompra = int(input("Ingrese el precio total de la compra: "))
+			fechaCompra = date.today()
+			compra.insertCompra(cantidadCompra, fechaCompra, precioCompra, clienteCompra, productoCompra)
 
 	elif opcionMenu=="9":
 		break
 	else:
 		print ("")
 		input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar")
-
-
-
-
