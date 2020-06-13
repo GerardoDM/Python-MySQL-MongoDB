@@ -81,43 +81,43 @@ while True:
 
     elif opcionMenu == "4":
 
-        compra = Compra()
-        cliente = Cliente()
-        cliente.fetchClientes()
-        producto = Producto()
-        producto.fetchProduct()
+        # compra = Compra()
+        # cliente = Cliente()
+        # cliente.fetchClientes()
+        # producto = Producto()
+        # producto.fetchProduct()
 
-        print(cliente.clienteList)
+        # print(cliente.clienteList)
 
-        while True:
+        # while True:
 
-            clienteCompra = int(input("Ingrese ID de cliente disponible: "))
+        #     clienteCompra = int(input("Ingrese ID de cliente disponible: "))
 
-            while clienteCompra not in cliente.clienteList:
-                print("No coincide con ningún ID, vuelve a intentar")
-                print(cliente.clienteList)
-                clienteCompra = int(
-                    input("Ingrese ID de cliente disponible: "))
+        #     while clienteCompra not in cliente.clienteList:
+        #         print("No coincide con ningún ID, vuelve a intentar")
+        #         print(cliente.clienteList)
+        #         clienteCompra = int(
+        #             input("Ingrese ID de cliente disponible: "))
 
-            if clienteCompra in cliente.clienteList:
-                print("Excelente")
-                break
+        #     if clienteCompra in cliente.clienteList:
+        #         print("Excelente")
+        #         break
 
-        print(producto.productosList)
+        # print(producto.productosList)
 
-        while True:
+        # while True:
 
-            productoCompra = int(input("Ingrese ID de producto disponible: "))
+        #     productoCompra = int(input("Ingrese ID de producto disponible: "))
 
-            while productoCompra not in producto.productosList:
-                print("No coincide con ningún ID, vuelve a intentar")
-                print(producto.productosList)
-                productoCompra = int(
-                    input("Ingrese ID de producto disponible: "))
+        #     while productoCompra not in producto.productosList:
+        #         print("No coincide con ningún ID, vuelve a intentar")
+        #         print(producto.productosList)
+        #         productoCompra = int(
+        #             input("Ingrese ID de producto disponible: "))
 
-            if productoCompra in producto.productosList:
-                print("Excelente")
-                break
+        #     if productoCompra in producto.productosList:
+        #         print("Excelente")
+        #         break
 
         cantidadCompra = int(input('Ingrese cantidad de la compra: '))
         precioCompra = int(input("Ingrese el precio total de la compra: "))
