@@ -45,16 +45,10 @@ while True:
 			input("Presiona enter para continuar")
 			menu()
 			
-<<<<<<< HEAD
+
 			
 		else:	
-=======
-		else:
 
-
-		
-<<<<<<< HEAD
->>>>>>> 183dbedab737a24967a39cc7ff3bb0a3c2ab3ee2
 
 			nombreCliente = input('Ingrese nombre de cliente ')
 			rfcCliente = input('Ingrese rfc de cliente ')
@@ -63,18 +57,6 @@ while True:
 			print(company2.companyList)
 
 
-
-=======
-
-			nombreCliente = input('Ingrese nombre de cliente ')
-			rfcCliente = input('Ingrese rfc de cliente ')
-			direccionCliente = input('Ingrese dirección de cliente ')
-
-			print(company2.companyList)
-
-
-
->>>>>>> 1a031de3edd3cbaa8b7df8b0e6143807b92d1bfb
 			while True:
 				
 				company = input("Ingrese nombre de la compañia disponible ").upper()
@@ -82,21 +64,16 @@ while True:
 				while company not in company2.companyList:
 					print("No coincide con ninguna empresa, vuelve a intentar")
 					company = input("Ingrese nombre de la compañia disponible ").upper()
-<<<<<<< HEAD
+
+
+				
 
 
 				if company in company2.companyList:
 					print("Excelente")
 					break
 
-=======
 
-
-				if company in company2.companyList:
-					print("Excelente")
-					break
-
->>>>>>> 1a031de3edd3cbaa8b7df8b0e6143807b92d1bfb
 			cliente.insertCliente( nombreCliente, rfcCliente, direccionCliente, company)
 
 	elif opcionMenu=="3":
@@ -124,13 +101,8 @@ while True:
 
 
 			print(cliente.clienteList)
-<<<<<<< HEAD
 
 
-=======
-
-
->>>>>>> 1a031de3edd3cbaa8b7df8b0e6143807b92d1bfb
 			while True:
 				
 				clienteCompra = int(input("Ingrese ID de cliente disponible: "))
