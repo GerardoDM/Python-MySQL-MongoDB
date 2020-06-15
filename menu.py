@@ -76,6 +76,7 @@ while True:
 
 
 			cliente.insertCliente( nombreCliente, rfcCliente, direccionCliente, company)
+			input("Presiona enter para continuar")
 
 	elif opcionMenu=="3":
 		
@@ -139,6 +140,7 @@ while True:
 			precioCompra = int(input("Ingrese el precio total de la compra: "))
 			fechaCompra = date.today()
 			compra.insertCompra(cantidadCompra, fechaCompra, precioCompra, clienteCompra, productoCompra)
+			input("Presiona enter para continuar")
 
 	elif opcionMenu=="9":
 		break
