@@ -1,6 +1,5 @@
 import os
 from datetime import date
-from Company import Company
 from Producto import Producto
 from Cliente import Cliente
 from Compra import Compra
@@ -33,11 +32,12 @@ while True:
     if opcionMenu == "1":
 
         nombreCompany = input('Ingrese nombre de la compañia ').upper()
-        precioCompany = input('Ingrese rfc de la compañia ')
+        rfcCompany = input('Ingrese rfc de la compañia ')
         direccionCompany = input('Ingrese dirección de la compañia ')
 
+        company = CompañiaMongo
         documentCompany = {'Nombre_Company': nombreCompany,
-                           'RFC_Company': precioCompany, 'Direccion_Company': direccionCompany}
+                           'RFC_Company': rfcCompany, 'Direccion_Company': direccionCompany}
         _id = collectionCompany.insert(documentCompany)
 
     elif opcionMenu == "2":
@@ -48,25 +48,29 @@ while True:
 
         documentCliente = {'Nombre_Cliente': nombreCliente,
                            'RFC_Cliente': rfcCliente, 'Direccion_Cliente': direccionCliente}
+
         _id = db['cliente'].insert(documentCliente)
 
         results = collectionCompany.find()
         for r in results:
             print(r['Nombre_Company'])
+        
+        while True:
 
-        # while True:
+            company = input("Ingrese nombre de la compañia disponible ").upper()
 
-        #     documentCompany = input("Ingrese nombre de la compañia disponible ").upper()
+            es = collectionCompany.find({'Nombre_Company': company})
+            for e in es:
+                print(e)
+                
+            if company in es:
+                print("Excelente")
+            else:
+                print("No coincide con ninguna empresa, vuelve a intentar")
+                company = input(
+                    "Ingrese nombre de la compañia disponible ").upper()
+
             
-            
-        #     while documentCompany not in results:
-        #         print("No coincide con ninguna empresa, vuelve a intentar")
-        #         company = input(
-        #             "Ingrese nombre de la compañia disponible ").upper()
-
-        #     if company in company2.companyList:
-        #         print("Excelente")
-        #         break
 
     elif opcionMenu == "2":
 
