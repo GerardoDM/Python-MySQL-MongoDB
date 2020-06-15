@@ -33,6 +33,7 @@ while True:
 		precioCompany = input('Ingrese rfc de la compañia ')
 		direccionCompany = input('Ingrese dirección de la compañia ')
 		company.insertarCompany(nombreCompany, precioCompany, direccionCompany)
+		input("Presione enter para continuar")
 		
 	elif opcionMenu=="2":
 
@@ -83,6 +84,7 @@ while True:
 		nombreProducto = input("Ingrese nombre de producto: ")
 		precioProducto = input("Ingrese precio de producto: ")
 		product.insertarProducto(nombreProducto, precioProducto)
+		input("Presione enter para continuar")
 
 	elif opcionMenu=="4":
 		

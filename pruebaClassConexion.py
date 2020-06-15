@@ -3,10 +3,7 @@ from mysql.connector import Error
 
 class Conexion:
 
-    # host = "localhost"
-    # database = "PruebaPython"
-    # user = "root"
-    # password = "root"
+
 
     def _connect(self):
         try:
